@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-	<script src="js/operation.js"></script>
 	<link rel="stylesheet" href="css/style.css" />
 	<script type="text/javascript">
 	  	$(document).ready(function () {
@@ -27,19 +26,33 @@
     var LeapManager = require('leap-events').LeapManager
       , FrameState  = require('leap-events').FrameState
     FrameState.screenSize = { width: 1280, height: 1080}
-    var manager = new LeapManager()
+    FrameState.leapFrameSize ={ width: 350, height: 300}
+    var manager = new LeapManager();
     manager.on('oneFingerMove', function (state) {
-      console.log(state.screenPosition());
+      //console.log(state.screenPosition());
       pointer(state.screenPosition().x,state.screenPosition().y,0);
-      //zoomin();
+      
     })
     manager.start();
+    var flag=0;
     manager.on('twoFingersMove', function (state) {
-       console.log("2finger");
-       pointer(state.screenPosition().x,state.screenPosition().y,1);
+       //console.log("2finger");
+       if(flag==1){
+
+       }else if(flag==10){
+       		pointer(state.screenPosition().x,state.screenPosition().y,1);
+       		flag=0;
+   		}else{
+   			flag++;
+   		}
 
     })
     manager.start();
+	manager.on('surround', function (states) {
+  		console.log(states);
+  		console.log(states);
+	})
+		manager.start();
 	</script>
 	<script type="text/javascript">
 	
@@ -200,6 +213,6 @@
   <script src="js/conductor-server.js"></script>
 	<script src="js/snapshot.js"></script>
 	<script src="js/draw.js"></script>
-
+	<script src="js/operation.js"></script>
 </body>
 </html>
