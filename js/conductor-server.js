@@ -3,7 +3,7 @@ var request   = require('request');
 var async     = require('async');
 var ConductorServer = function () {};
 
-ConductorServer.prototype.save = function (word, object, img) {
+ConductorServer.prototype.save = function (img, word, object) {
     async.series([
         function (callback) {
             var targetURL = apiDomain + '/save';
