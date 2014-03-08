@@ -4,3 +4,5 @@ var LeapManager = require('leap-events').LeapManager;
 
 App.leapManager = new LeapManager({
 });
+
+App.leapManager.start();

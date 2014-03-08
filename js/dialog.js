@@ -12,11 +12,15 @@ function  openDialog(){
   });
 }
 
-window.App.dialog = App.dialog || $('#dialog');
+App.dialog = App.dialog || $('#dialog');
+
 
 App.leapManager.on('fingerMove', function (state) {
   if (state.fingersCount() < 3) return;
+  var position = state.screenPosition();
+  console.log(position);
   App.dialog.offset({
-
+    top: position.y,
+    left: position.x
   });
 });
