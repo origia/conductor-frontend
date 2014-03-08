@@ -37,10 +37,9 @@
   	canvas = $('#tmp-canvas').get(0),
   	ctx = canvas.getContext("2d");
 
-    //ctx.drawImage(video,x,y);
-  
+   
     ctx.drawImage(video, fx,fy,width,height, 100, 100, 100, 100);
-    //ctx.drawImage(video,300,300);
+  
     var img = new Image();
     console.log(img);
     
