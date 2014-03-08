@@ -9,7 +9,7 @@ var manager = new LeapManager();
 App.leapManager.on('oneFingerMove', function (state) {
       //console.log(state.screenPosition());
       pointer(state.screenPosition().x,state.screenPosition().y,0);
-      
+
   })
 App.leapManager.start();
 
@@ -26,7 +26,7 @@ App.leapManager.on('twoFingersMove', function (state) {
 
    })
 App.leapManager.start();
- 
+
 
 
 var video_tmp = $('#Video1').get(0);
@@ -83,7 +83,7 @@ canvas.addEventListener("mousedown",function(event){
 
 //マウスを押したときの処理
 canvas.addEventListener("mouseout",function(event){
-	console.log("out");
+	// console.log("out");
 //var rec = event.target.getBoundingClientRect();
 //stX = event.clientX - rec.left;
 //stY = event.clientY - rec.top;
@@ -105,7 +105,7 @@ var y = py;
 
 // キャンバスをクリア
 if(flag==0){
-	console.log("clear");
+	// console.log("clear");
 	context.beginPath();
 	context.clearRect(0, 0, canvas.width, canvas.height);
 }
