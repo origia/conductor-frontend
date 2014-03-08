@@ -1,16 +1,34 @@
 
-
 var move_flag=0;
+var flag=0;
+/*var LeapManager = require('leap-events').LeapManager
+, FrameState  = require('leap-events').FrameState
+FrameState.screenSize = { width: 1280, height: 1080}
+FrameState.leapFrameSize ={ width: 350, height: 300}*/
+var manager = new LeapManager();
+App.leapManager.on('oneFingerMove', function (state) {
+      //console.log(state.screenPosition());
+      pointer(state.screenPosition().x,state.screenPosition().y,0);
+      
+  })
+App.leapManager.start();
 
-function draw_move(){
-move_flag=1;
- console.log("move");
-}
+App.leapManager.on('twoFingersMove', function (state) {
+       //console.log("2finger");
+       if(flag==1){
+       	flag++;
+       }else if(flag==5){
+       	pointer(state.screenPosition().x,state.screenPosition().y,1);
+       	getSnap(0,0,0,0);
+       	flag=0;
+       }else{
+       	flag++;
+       }
 
-function draw_stop(){
-move_flag=0;
- console.log("stop");
-}
+   })
+App.leapManager.start();
+ 
+
 
 var video_tmp = $('#Video1').get(0);
 var canvas = document.getElementById("a_canvas");
@@ -25,8 +43,8 @@ var stY=0;
 
 //マウスを動かしたときの処理
 canvas.addEventListener("mousemove",function(event){
-/* 半透明度を指定 */
- canvas.globalAlpha = 0.0;
+	/* 半透明度を指定 */
+	canvas.globalAlpha = 0.0;
 
 //位置の取得
 var rec = event.target.getBoundingClientRect();
@@ -35,8 +53,8 @@ var y = event.clientY - rec.top;
 
 // キャンバスをクリア
 if(move_flag==0){
- context.beginPath();
- context.clearRect(0, 0, canvas.width, canvas.height);
+	context.beginPath();
+	context.clearRect(0, 0, canvas.width, canvas.height);
 }
 //線を引く
 context.beginPath();
@@ -66,7 +84,7 @@ canvas.addEventListener("mousedown",function(event){
 
 //マウスを押したときの処理
 canvas.addEventListener("mouseout",function(event){
-console.log("out");
+	console.log("out");
 //var rec = event.target.getBoundingClientRect();
 //stX = event.clientX - rec.left;
 //stY = event.clientY - rec.top;
@@ -79,7 +97,7 @@ console.log("out");
 function pointer(px,py,flag){
 
 	/* 半透明度を指定 */
- canvas.globalAlpha = 0.0;
+	canvas.globalAlpha = 0.0;
 
 //位置の取得
 //var rec = event.target.getBoundingClientRect();
@@ -88,8 +106,8 @@ var y = py;
 
 // キャンバスをクリア
 if(flag==0){
- context.beginPath();
- context.clearRect(0, 0, canvas.width, canvas.height);
+	context.beginPath();
+	context.clearRect(0, 0, canvas.width, canvas.height);
 }
 //線を引く
 context.beginPath();
