@@ -1,0 +1,16 @@
+[{
+	"api_name": "amazon",
+	"info": [
+		{ "name": "グレシア", "price": 21 },
+		{ "name": "kindle", "price": 56 },
+		{ "name": "お金", "price": 33 }
+	]
+},
+{
+	"api_name": "gracenote",
+	"info": [
+		{ "name": "堺雅人", "age": 44 },
+		{ "name": "香川照之", "age": 45 },
+		{ "name": "上戸彩", "age": 26 }
+	]
+}]
