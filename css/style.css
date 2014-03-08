@@ -1,0 +1,194 @@
+body {
+	width: 100%;
+	height: 100%;
+	background: black;
+}
+video {
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+}
+canvas {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+.information {
+	position: absolute;
+	bottom: 0px;
+	left: 0%;
+	width: 100%;
+	height: 200px;
+}
+.screenshot {
+	float: left;
+	position: absolute;
+	bottom: 40px;
+	left: 80%;
+	width: 178px;
+	height: auto;
+	max-width: 178px;
+	min-width: 178px;
+	z-index: 2000;
+	-webkit-transform: translateX(-50%) translateY(-10%);
+	-moz-transform: translateX(-50%) translateY(-10%);
+	-ms-transform: translateX(-50%) translateY(-10%);
+	transform: translateX(-50%) translateY(-10%);
+}
+.screenshot img {
+	width: 80%;
+}
+
+.md-modal {
+	float: left;
+	position: absolute;
+	bottom: 0;
+	left: 40%;
+	width: 60%;
+	height: auto;
+	max-width: 630px;
+	z-index: 2000;
+	-webkit-transform: translateX(-50%) translateY(-10%);
+	-moz-transform: translateX(-50%) translateY(-10%);
+	-ms-transform: translateX(-50%) translateY(-10%);
+	transform: translateX(-50%) translateY(-10%);
+}
+
+.md-modal:after {
+		content: ' ';
+		height: 0;
+		position: absolute;
+		width: 0;
+		border: solid transparent;
+		left: 100%;
+		border-width: 11px;
+		border-left-color: #fff;
+		top: 93px;
+		opacity: 0.8;
+}
+
+.md-modal:before {
+		content: ' ';
+		height: 0;
+		position: absolute;
+		width: 0;
+		border: solid transparent;
+		left: 100%;
+		border-width: 13px;
+		border-left-color: #e2e2e2;
+		top: 91px;
+		opacity: 0;
+}
+
+.md-show {
+	visibility: visible;
+}
+
+
+/* Content styles */
+.md-content {
+	color: #444;
+	background: white;
+	position: relative;
+	border-radius: 3px;
+	margin: 0 auto;
+	height: 215px;
+	overflow: hidden;
+}
+
+.md-content h3 {
+	margin: 0;
+	padding: 0.4em;
+	text-align: center;
+	font-size: 150%;
+	font-weight: 300;
+	opacity: 0.8;
+	background: rgba(0,0,0,0.15);
+	border-radius: 3px 3px 0 0;
+}
+
+.md-content > div {
+	padding-top: 10px;
+	padding-left: 10px;
+	margin: 0;
+	font-weight: 300;
+	font-size: 100%;
+	color: #555;
+	opacity: 1.0;
+}
+
+.md-content > div p {
+	margin: 0;
+	padding: 10px 0;
+}
+
+.md-content > div ul {
+	margin: 0;
+	padding: 10px 0 10px 0px;
+	line-height: 1em;
+}
+
+.md-content > div ul li {
+	width: auto;
+	float: left;
+	margin-right: 20px;
+	list-style-type: none;
+	font-size: 110%;
+	padding-bottom: 10px;
+}
+
+.md-content > div ul li strong{
+	color: #333;
+	font-size: 80%;
+}
+
+
+/* Effect 14:  3D Rotate from bottom */
+.md-modal {
+	-webkit-perspective: 1300px;
+	-moz-perspective: 1300px;
+	perspective: 1300px;
+}
+
+.md-content {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: translateY(100%) rotateX(90deg);
+	-moz-transform: translateY(100%) rotateX(90deg);
+	-ms-transform: translateY(100%) rotateX(90deg);
+	transform: translateY(100%) rotateX(90deg);
+	-webkit-transform-origin: 0 100%;
+	-moz-transform-origin: 0 100%;
+	transform-origin: 0 100%;
+	opacity: 0;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+
+.md-show .md-content {
+	-webkit-transform: translateY(0%) rotateX(0deg);
+	-moz-transform: translateY(0%) rotateX(0deg);
+	-ms-transform: translateY(0%) rotateX(0deg);
+	transform: translateY(0%) rotateX(0deg);
+	opacity: 0.85;
+}
+@media screen and (max-width : 1080px) {
+    html{ font-size : 100%;}
+    .screenshot img{ width : 80%; }
+}
+@media screen and (max-width : 960px){
+    html{ font-size : 87.5%;}
+    .screenshot { left: 90%; }
+    .screenshot img{ width : 50%;}
+    .md-content { height: 160px; }
+		.md-modal:after { top: 68px; }
+		.md-modal:before { top: 65px; }
+		.md-content > div ul { padding-top: 3px; }
+}

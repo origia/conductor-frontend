@@ -1,164 +1,228 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Conducter</title>
+	<meta charset="utf-8" />
+	<meta content="initial-scale=1.0, user-scalable=no" name="viewport">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+	<script src="/resources/demos/external/jquery.bgiframe-3.0.0.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<script src="http://yourdomain/jquery.wz_jsgraphics.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="css/style.css" />
+	<script type="text/javascript">
+  	$(document).ready(function () {
+  		//timer設定
+  		$.getJSON("data.json", function(data){
+  			for(var i in data){
+  			$("#output").append("<li><strong>" + data[i].api_name+ "</strong></li>");
+  				for(var j in data[i].info){
+  					$("#output").append("<li>" + data[i].info[j].name + "（" + data[i].info[j].age + "才）</li>\n");
+  				}
+  			}
+  		});
+  	});
+    //taimer
+    var motionObj = {};
+    // loopFlagのタイマー
+    function get_leap_info(){
+    　//console.log("timer");
+    　//pointer(100,100,0)
+      //さいしょの値（視点x,y、とwidth、height）
+     //getSnap(0,0,stX,stY);
+    }
+    var LeapManager = require('leap-events').LeapManager
+      , FrameState  = require('leap-events').FrameState
+    FrameState.screenSize = { width: 1024, height: 768}
+    var manager = new LeapManager()
+    manager.on('oneFingerMove', function (state) {
+      console.log(state.screenPosition().y)
+      pointer(state.screenPosition().x,state.screenPosition().y,0);
+    　console.log
+    })
+    manager.start();
+    manager.on('twoFingersMove', function (state) {
+       console.log("2finger")
+       pointer(state.screenPosition().x,state.screenPosition().y,1);
 
-<title>Conducter</title>
-<meta charset="utf-8" />
-<meta content="initial-scale=1.0, user-scalable=no" name="viewport">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
- <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
- <script src="/resources/demos/external/jquery.bgiframe-3.0.0.js"></script>
-  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-<script src="http://yourdomain/jquery.wz_jsgraphics.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="css/mainstyles.css" />
-  <link rel="stylesheet" href="css/video.css" />
-
-<script type="text/javascript">
-$(document).ready(function () {
-  videoplay();
-  //timer設定
-  setInterval("get_leap_info()",1000);
-	$.getJSON("data.json", function(data){
-		for(var i in data){
-		$("#output").append("<li><strong>" + data[i].api_name+ "</strong></li>");
-			for(var j in data[i].info){
-				$("#output").append("<li>" + data[i].info[j].name + "（" + data[i].info[j].age + "才）</li>\n");
+    })
+    manager.start();
+	</script>
+	<script type="text/javascript">
+		function  parse_xml(xml){
+			 var request = new XMLHttpRequest();
+			request.open("POST", "https://c8027136.web.cddbp.net/webapi/xml/1.0/", false);
+			request.send(xml);
+			if (request.status == 200) {
+				alert(request.responseText);
+			 $("#output").append(request.responseText);
 			}
 		}
-	});
-
-});
-
-/*var Reap = require("./Reap_module.js");
-var p = new Reap("move",100,100);
-p.move();  // 
-//p.myName();  // 
-var tmp=p.move(); 
-console.log(tmp);*/
-
-
-
-//taimer
-var motionObj = {};
-// loopFlagのタイマー
-function get_leap_info(){
-　//console.log("timer");
-　//pointer(100,100,0)
-  //さいしょの値（視点x,y、とwidth、height）
- //getSnap(0,0,stX,stY);
-}
-
-var LeapManager = require('leap-events').LeapManager
-  , FrameState  = require('leap-events').FrameState
-
-FrameState.screenSize = { width: 1024
-                      , height: 768
-                      }
-
-var manager = new LeapManager()
-manager.on('oneFingerMove', function (state) {
-  console.log(state.screenPosition().y)
-  pointer(state.screenPosition().x,state.screenPosition().y,0);
-　console.log
-})
-manager.start();
-
-
-manager.on('twoFingersMove', function (state) {
-   console.log("2finger")
-   pointer(state.screenPosition().x,state.screenPosition().y,1);
-
-})
-manager.start();
-
-
-
-
-</script>
-
-
-<script type="text/javascript">
-function  parse_xml(xml){
-   var request = new XMLHttpRequest();
-  request.open("POST", "https://c8027136.web.cddbp.net/webapi/xml/1.0/", false);
-  request.send(xml);
-  if (request.status == 200) {
-    alert(request.responseText);
-   $("#output").append(request.responseText);
-  }
-}
-
-function getXML() {
-    jQuery.ajax({
-    url: 'music_details.xml',
-    type: 'GET',
-    dataType: 'xml',
-    cache: false,  
-    success: parse_xml
-    });
-  }
-
-
-
-</script>
-
+		function getXML() {
+			jQuery.ajax({
+			url: 'music_details.xml',
+			type: 'GET',
+			dataType: 'xml',
+			cache: false,
+			success: parse_xml
+			});
+		}
+	</script>
 </head>
-<body> 
-
-
-
-
- <div class="wrapper"> 
- <div id="stage"　class="thumbnail">
-<video id="Video1"  >
-//  Replace these with your own video files. 
-   <source src="sample_cm.webm" type='video/webm; codecs="vorbis,vp8"'>  
-</video>
-</div>
- 
- <canvas class="label" id="a_canvas" width="500" height="500">
-  </canvas>
-</div>
-
-
-  <div id="buttonbar">
-    <button id="restart" onclick="restart();">restrat</button> 
-    <button id="rew" onclick="skip(-5)">&lt;&lt;</button><p>5戻る</p>
-    <button id="play" onclick="videoplay()">start</button>
-    <button id="fastFwd" onclick="skip(5)">&gt;&gt;</button><p>5進む</p>
-    <button id="zoom" onclick="zoomin();">ZOOM</button>
-    <button id="zoom" onclick="zoomout();">ZOOMOUT</button>
-    <button id="zoom" onclick="moveleft();">LEFT</button>
-    <button id="zoom" onclick="moveright();">RIGHT</button>
-	 <button id="zoom" onclick="moveup();">UP</button>
+<body>
+	<div class="wrapper">
+		<div id="stage"　class="thumbnail">
+			<video>
+				<source src="video/sample.mov" autoplay loop>
+			</video>
+			<canvas class="label" id="a_canvas" width="100%" height="100%"></canvas>
+		</div>
+		<div class="information">
+			<div class="md-modal md-show">
+				<div class="md-content">
+					<h3>Modal Dialog</h3>
+					<div>
+						<ul>
+							<li>
+								<strong>名前:</strong>
+								Hajime Hirono
+							</li>
+							<li>
+								<strong>年齢:</strong>
+								21
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+							<li>
+								<strong>名前:</strong>
+								Hajime Hirono
+							</li>
+							<li>
+								<strong>年齢:</strong>
+								21
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+							<li>
+								<strong>年齢:</strong>
+								21
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+							<li>
+								<strong>年齢:</strong>
+								21
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+							<li>
+								<strong>年齢:</strong>
+								21
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+							<li>
+								<strong>年齢:</strong>
+								21
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+							<li>
+								<strong>年齢:</strong>
+								21
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+							<li>
+								<strong>年齢:</strong>
+								21
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+							<li>
+								<strong>年齢:</strong>
+								21
+							</li>
+							<li>
+								<strong>職業:</strong>
+								学生
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="screenshot">
+				<img src="images/screenshot.png">
+			</div>
+		</div>
+	</div>
+	<!--
+	<div id="buttonbar">
+		<button id="restart" onclick="restart();">restrat</button>
+		<button id="rew" onclick="skip(-5)">&lt;&lt;</button><p>5戻る</p>
+		<button id="play" onclick="vidplay()">start</button>
+		<button id="fastFwd" onclick="skip(5)">&gt;&gt;</button><p>5進む</p>
+		<button id="zoom" onclick="zoomin();">ZOOM</button>
+		<button id="zoom" onclick="zoomout();">ZOOMOUT</button>
+		<button id="zoom" onclick="moveleft();">LEFT</button>
+		<button id="zoom" onclick="moveright();">RIGHT</button>
+		<button id="zoom" onclick="moveup();">UP</button>
 	　<button id="zoom" onclick="movedown();">down</button>
-    <button id="zoom" onclick="open_dialog();">dialog</button>
-     <button id="snapshot-btn">スクショ</button>
-<button id="draw"  onclick="getSnap_test(100,100);">TEST</button>
-     <button id="draw"  onclick="draw_move();">move_start</button>
-     <button id="draw"  onclick="draw_stop();">move_stop</button>
-</div>         
-<button onclick="getXML()">Get XML</button>
-<script src="js/dialog.js"></script>
-  <script src="js/operation.js"></script>
- 
-<div id="dialog" title="基本的なダイアログ">
-  <p>
-     <ul id="output"></ul>
-  </p>
-</div>
-
-   
+		<button id="zoom" onclick="open_dialog();">dialog</button>
+		<button id="snapshot-btn">スクショ</button>
+		<button id="draw"  onclick="getSnap_test(100,100);">TEST</button>
+		<button id="draw"  onclick="draw_move();">move_start</button>
+		<button id="draw"  onclick="draw_stop();">move_stop</button>
 	</div>
-	<div id="snap-area">
+	<button onclick="getXML()">Get XML</button>
+	-->
+	<script src="js/dialog.js"></script>
+	<script src="js/operation.js"></script>
+	<div id="dialog" title="基本的なダイアログ">
+		<p>
+			<ul id="output"></ul>
+		</p>
 	</div>
+	<div id="snap-area"></div>
+	<!--
 	<div id="hidden-area">
-		<canvas id="tmp-canvas" width="854" height="480"></canvas>
+		<canvas id="tmp-canvas" width="100%" height="100%"></canvas>
 	</div>
+	-->
 	<script src="js/snapshot.js"></script>
-
 	<script src="js/draw.js"></script>
-	
-
 </body>
 </html>
+>>>>>>> c9d4f5879521caf7338520c1d6501c2df222f3b6
