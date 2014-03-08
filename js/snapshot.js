@@ -28,7 +28,12 @@ App.leapManager.on('surround', function (states) {
   var rectangle = getRectangle(states),
       context   = imgCanvasObj.getContext("2d");
 
-  context.drawImage(videoObj, rectangle.x, rectangle.y,
-    rectangle.width, rectangle.height, 0, 0, destWidth, destHeight);
+  var x      = Math.max(0, rectangle.x),
+      y      = Math.max(0, rectangle.y),
+      width  = Math.min(videoObj.width - x, rectangle.width),
+      height = Math.min(videoObj.height - y, rectangle.height);
+
+  context.drawImage(videoObj, x, y, width, height, 0, 0,
+    destWidth, destHeight);
   imgObj.src = imgCanvasObj.toDataURL();
 });
