@@ -1,16 +1,33 @@
 
-
 var move_flag=0;
+var flag=0;
+/*var LeapManager = require('leap-events').LeapManager
+, FrameState  = require('leap-events').FrameState
+FrameState.screenSize = { width: 1280, height: 1080}
+FrameState.leapFrameSize ={ width: 350, height: 300}*/
+var manager = new LeapManager();
+App.leapManager.on('oneFingerMove', function (state) {
+      //console.log(state.screenPosition());
+      pointer(state.screenPosition().x,state.screenPosition().y,0);
+      
+  })
+App.leapManager.start();
 
-function draw_move(){
-	move_flag=1;
-	console.log("move");
-}
+App.leapManager.on('twoFingersMove', function (state) {
+       //console.log("2finger");
+       if(flag==1){
+       	flag++;
+       }else if(flag==5){
+       	pointer(state.screenPosition().x,state.screenPosition().y,1);
+       	flag=0;
+       }else{
+       	flag++;
+       }
 
-function draw_stop(){
-	move_flag=0;
-	console.log("stop");
-}
+   })
+App.leapManager.start();
+ 
+
 
 var video_tmp = $('#Video1').get(0);
 var canvas = document.getElementById("a_canvas");
@@ -88,6 +105,7 @@ var y = py;
 
 // キャンバスをクリア
 if(flag==0){
+	console.log("clear");
 	context.beginPath();
 	context.clearRect(0, 0, canvas.width, canvas.height);
 }
