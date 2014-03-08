@@ -7,7 +7,27 @@ p.stop_move();  // "koexuka
 console.log(p.x);
 console.log(p.move_kind);*/
 
+
+
 //
+var video = document.getElementById("Video1");
+
+
+App.leapManager.on('pause', function () {
+  console.log('pause');
+  videoplay();
+})
+
+
+App.leapManager.on('zoomIn', function () {
+  console.log('zoomIn');
+  zoomin();
+})
+
+App.leapManager.on('zoomOut', function () {
+  console.log('zoomOut');
+   zoomout();
+})
 
 
 /* predefine zoom and rotate */
@@ -18,8 +38,7 @@ console.log(p.move_kind);*/
   var stage = document.getElementById('stage'),
   v = document.getElementsByTagName('video')[0],
   controls = document.getElementById('controls');
-      
-       
+           
 /* Array of possible browser specific settings for transformation */
   var properties = ['transform', 'WebkitTransform', 'MozTransform',
                     'msTransform', 'OTransform'],
@@ -41,16 +60,20 @@ console.log(p.move_kind);*/
   v.style.top = 0;
 
  function  zoomin(){
-          zoom = zoom + 0.1;
- 
+          zoom = zoom + 1.0;
+          
           v.style[prop]='scale('+zoom+') rotate('+rotate+'deg)';
           console.log( v.style[prop]);
 
  }
  
  function  zoomout(){
-          zoom = zoom - 0.1;
-          v.style[prop]='scale('+zoom+') rotate('+rotate+'deg)';
+          
+          if(zoom>1.0){
+            zoom = zoom - 1.0;
+            v.style[prop]='scale('+zoom+') rotate('+rotate+'deg)';
+          }
+         
           console.log( v.style[prop]);
  }
  
@@ -58,11 +81,11 @@ console.log(p.move_kind);*/
           console.log( v.style.left);
          //10進数でpxを取るて-5
           v.style.left = (parseInt(v.style.left,10) - 5) + 'px';
-           console.log( v.style.left);
+          console.log( v.style.left);
  }
  
  function  moveright(){
-           v.style.left = (parseInt(v.style.left,10) + 5) + 'px';
+          v.style.left = (parseInt(v.style.left,10) + 5) + 'px';
  }
  
   function  moveup(){
@@ -78,7 +101,7 @@ console.log(p.move_kind);*/
 
  
   function videoplay() {
-       var video = document.getElementById("Video1");
+      
        if (video.paused) {
           video.play();
        } else {
@@ -87,11 +110,11 @@ console.log(p.move_kind);*/
     }
 
     function restart() {
-        var video = document.getElementById("Video1");
+        
         video.currentTime = 0;
     }
 
     function skip(value) {
-        var video = document.getElementById("Video1");
+       
         video.currentTime += value;
     }      
