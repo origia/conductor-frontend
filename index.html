@@ -9,26 +9,9 @@
 	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 	<link rel="stylesheet" href="css/style.css" />
 	<script type="text/javascript">
-  	$(document).ready(function () {
-  		//timer設定
-  		$.getJSON("data.json", function(data){
-  			for(var i in data){
-  			$("#output").append("<li><strong>" + data[i].api_name+ "</strong></li>");
-  				for(var j in data[i].info){
-  					$("#output").append("<li>" + data[i].info[j].name + "（" + data[i].info[j].age + "才）</li>\n");
-  				}
-  			}
-  		});
-  	});
-    //taimer
-    var motionObj = {};
-    // loopFlagのタイマー
-    function get_leap_info(){
-    //console.log("timer");
-    //pointer(100,100,0)
-    //さいしょの値（視点x,y、とwidth、height）
-    //getSnap(0,0,stX,stY);
-    }
+  	
+  
+   
     var LeapManager = require('leap-events').LeapManager
       , FrameState  = require('leap-events').FrameState
     FrameState.screenSize = { width: 1280, height: 1080}
@@ -36,7 +19,7 @@
     manager.on('oneFingerMove', function (state) {
       console.log(state.screenPosition().y)
       pointer(state.screenPosition().x,state.screenPosition().y,0);
-
+    
     })
     manager.start();
     manager.on('twoFingersMove', function (state) {
@@ -47,32 +30,16 @@
     manager.start();
 	</script>
 	<script type="text/javascript">
-		function  parse_xml(xml){
-			 var request = new XMLHttpRequest();
-			request.open("POST", "https://c8027136.web.cddbp.net/webapi/xml/1.0/", false);
-			request.send(xml);
-			if (request.status == 200) {
-				alert(request.responseText);
-			 $("#output").append(request.responseText);
-			}
-		}
-		function getXML() {
-			jQuery.ajax({
-			url: 'music_details.xml',
-			type: 'GET',
-			dataType: 'xml',
-			cache: false,
-			success: parse_xml
-			});
-		}
+	
 	</script>
 </head>
 <body>
 	<div class="wrapper">
 		<div id="stage" class="thumbnail">
-			<video id="video1">
-				<source src="video/sample.webm" autoplay loop>
+			<video id="Video1">
+				<source src="video/sample.mov" autoplay loop>
 			</video>
+		
 		</div>
       <canvas class="label" id="a_canvas" width="100%" height="100%"></canvas>
 		<div class="information">
@@ -214,11 +181,12 @@
 		</p>
 	</div>
 	<div id="snap-area"></div>
+	<!--
 	<div id="hidden-area">
 		<canvas id="tmp-canvas" width="100%" height="100%"></canvas>
 	</div>
+	-->
 	<script src="js/snapshot.js"></script>
 	<script src="js/draw.js"></script>
-	<script src="js/conductor-server.js"></script>
 </body>
 </html>
