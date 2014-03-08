@@ -19,6 +19,7 @@ App.leapManager.on('twoFingersMove', function (state) {
        	flag++;
        }else if(flag==5){
        	pointer(state.screenPosition().x,state.screenPosition().y,1);
+       	getSnap(0,0,0,0);
        	flag=0;
        }else{
        	flag++;
@@ -105,7 +106,6 @@ var y = py;
 
 // キャンバスをクリア
 if(flag==0){
-	console.log("clear");
 	context.beginPath();
 	context.clearRect(0, 0, canvas.width, canvas.height);
 }
