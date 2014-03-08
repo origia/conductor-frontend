@@ -1,6 +1,6 @@
 "use strict";
 
-var LeapManager = require('leap-manager')
+var LeapManager = require('leap-events').LeapManager
 
 var manager = new LeapManager()
 manager.on('oneFingerMove', function (state) {
