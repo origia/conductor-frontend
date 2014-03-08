@@ -14,4 +14,11 @@ App.leapManager = new LeapManager({
 
 document.getElementById("Video1").play();
 
+var canvas = document.getElementById("a_canvas");
+var context = canvas.getContext("2d");
+
+App.clearLines = function () {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+};
+
 App.leapManager.start();

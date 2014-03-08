@@ -5,6 +5,7 @@ var getRectangle = function (states) {
       maxY = 0;
   for (var i = 0; i < states.length; i++) {
     var position = states[i].screenPosition();
+    if (position === null) continue;
     if (position.x < minX) minX = position.x;
     if (position.y < minY) minY = position.y;
     if (position.x > maxX) maxX = position.x;
@@ -33,7 +34,10 @@ App.leapManager.on('surround', function (states) {
       width  = Math.min(videoObj.width - x, rectangle.width),
       height = Math.min(videoObj.height - y, rectangle.height);
 
+  context.clearRect(0, 0, imgCanvasObj.width, imgCanvasObj.height);
   context.drawImage(videoObj, x, y, width, height, 0, 0,
     destWidth, destHeight);
   imgObj.src = imgCanvasObj.toDataURL();
+
+  App.clearLines();
 });
