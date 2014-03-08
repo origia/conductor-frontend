@@ -21,8 +21,10 @@ canvas {
 .information {
 	position: absolute;
 	bottom: 0px;
-	left: 0%;
+	left: 50%;
 	width: 100%;
+	max-width: 1080px;
+	margin-left: -540px;
 	height: 200px;
 }
 .screenshot {
@@ -191,6 +193,7 @@ canvas {
 		.md-modal:after { top: 68px; }
 		.md-modal:before { top: 65px; }
 		.md-content > div ul { padding-top: 3px; }
+		.information { left: 0%; max-width: 100%; margin-left: 0px; }
 }
 
 #action-indicator {

@@ -5,7 +5,7 @@ var LeapManager = require('leap-events').LeapManager,
     FrameState  = require('leap-events').FrameState;
 
 FrameState.screenSize = { width: 1280, height: 1080};
-FrameState.leapFrameSize ={ width: 350, height: 300};
+FrameState.leapFrameSize = { width: 300, height: 250};
 
 
 App.leapManager = new LeapManager({
