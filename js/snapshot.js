@@ -1,9 +1,9 @@
 (function($){
 	
-	　var video = $('#Video1').get(0),
-		canvas = $('#tmp-canvas').get(0),
+	var video = $('#Video1').get(0),
+  canvas = $('#tmp-canvas').get(0),
 	
-		ctx = canvas.getContext("2d");
+	ctx = canvas.getContext("2d");
 
 	function getSnap(){
 
