@@ -3,20 +3,36 @@ var request   = require('request');
 var async     = require('async');
 var ConductorServer = function () {};
 
-ConductorServer.prototype.save = function (img, word, object) {
+
+/*
+@param {word: word, img: img, object: object}
+@func  callback function
+
+ex.
+var cs = new ConductorServer();
+cs.save({word: word, img: img, object: object}, function(results){
+    console.log(results);
+})
+*/
+ConductorServer.prototype.save = function (param, func) {
+    if (param === null || param === void 0) {
+        console.log("error: param is nil.");
+        return false;
+    }
     async.series([
         function (callback) {
             var targetURL = apiDomain + '/save';
             var options = {
                 uri: targetURL,
-                form: { word: word, object: object, img: img },
+                form: param,
                 json: true
             };
             request.post(options, function(error, response, body){
-                if (!error && response.statusCode == 200) {
-                    console.log(body);
+                if (!error && response.statusCode === 200) {
+                    callback(null, body);
                 } else {
                     console.log('error: '+ response.statusCode);
+                    callback(response.statusCode);
                 }
             });
         }
@@ -24,6 +40,7 @@ ConductorServer.prototype.save = function (img, word, object) {
         if (err) {
             throw err;
         }
-        console.log('series all done. ' + results);
+        if (func) func(results);
+        console.log('series all done. ', results);
     });
 };
