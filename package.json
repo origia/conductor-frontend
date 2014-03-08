@@ -1,0 +1,28 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "name": "conductor-frontend",
+  "version": "0.1.0",
+  "description": "Frontend interface for conductor",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/origia/conductor-frontend.git"
+  },
+  "keywords": [
+    "television",
+    "conductor"
+  ],
+  "author": "Yoko Ichioka,Daniel Perez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/origia/conductor-frontend/issues"
+  },
+  "homepage": "https://github.com/origia/conductor-frontend",
+  "dependencies": {
+    "leap-events": "git+https://github.com/origia/leap-events.git#master",
+    "request": "~2.34.0",
+    "async": "~0.2.10"
+  }
+}

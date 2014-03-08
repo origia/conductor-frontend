@@ -24,10 +24,10 @@
     var motionObj = {};
     // loopFlagのタイマー
     function get_leap_info(){
-    　//console.log("timer");
-    　//pointer(100,100,0)
-      //さいしょの値（視点x,y、とwidth、height）
-     //getSnap(0,0,stX,stY);
+    //console.log("timer");
+    //pointer(100,100,0)
+    //さいしょの値（視点x,y、とwidth、height）
+    //getSnap(0,0,stX,stY);
     }
     var LeapManager = require('leap-events').LeapManager
       , FrameState  = require('leap-events').FrameState
@@ -36,7 +36,7 @@
     manager.on('oneFingerMove', function (state) {
       console.log(state.screenPosition().y)
       pointer(state.screenPosition().x,state.screenPosition().y,0);
-    
+
     })
     manager.start();
     manager.on('twoFingersMove', function (state) {
@@ -69,11 +69,10 @@
 </head>
 <body>
 	<div class="wrapper">
-		<div id="stage"　class="thumbnail">
-			<video>
-				<source src="video/sample.mov" autoplay loop>
+		<div id="stage" class="thumbnail">
+			<video id="video1">
+				<source src="video/sample.webm" autoplay loop>
 			</video>
-		
 		</div>
       <canvas class="label" id="a_canvas" width="100%" height="100%"></canvas>
 		<div class="information">
@@ -215,12 +214,11 @@
 		</p>
 	</div>
 	<div id="snap-area"></div>
-	<!--
 	<div id="hidden-area">
 		<canvas id="tmp-canvas" width="100%" height="100%"></canvas>
 	</div>
-	-->
 	<script src="js/snapshot.js"></script>
 	<script src="js/draw.js"></script>
+	<script src="js/conductor-server.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 var apiDomain = 'http://localhost:9393';
 var request   = require('request');
 var async     = require('async');
-var ConductorServer = {};
+var ConductorServer = function () {};
 
 ConductorServer.prototype.save = function (word, object, img) {
     async.series([
