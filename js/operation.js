@@ -79,13 +79,10 @@ console.log(p.move_kind);*/
  
   function videoplay() {
        var video = document.getElementById("Video1");
-       var button = document.getElementById("play");
        if (video.paused) {
           video.play();
-          button.textContent = "stop";
        } else {
           video.pause();
-          button.textContent = "start";
        }
     }
 
