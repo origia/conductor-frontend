@@ -1,4 +1,4 @@
-function  open_dialog(){
+function  openDialog(){
   $('#dialog').dialog({
     modal: true,
     position: [0,0],
@@ -11,3 +11,12 @@ function  open_dialog(){
     width : 600
   });
 }
+
+window.App.dialog = App.dialog || $('#dialog');
+
+App.leapManager.on('fingerMove', function (state) {
+  if (state.fingersCount() < 3) return;
+  App.dialog.offset({
+
+  });
+});

@@ -192,3 +192,8 @@ canvas {
 		.md-modal:before { top: 65px; }
 		.md-content > div ul { padding-top: 3px; }
 }
+
+#action-indicator {
+	top: 0;
+	left: 0;
+}

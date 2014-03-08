@@ -1,3 +1,6 @@
 window.App = window.App || {};
 
-App.leapManager = require('leap-events').leapManager;
+var LeapManager = require('leap-events').LeapManager;
+
+App.leapManager = new LeapManager({
+});
