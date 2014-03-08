@@ -10,9 +10,9 @@
 	<link rel="stylesheet" href="css/style.css" />
 	<script type="text/javascript">
 	  	$(document).ready(function () {
-  		  var img_data=getSnap(100,100,200,200);
-  		  console.log(img_data);
-  		  videoplay();
+	  		  //zvar img_data=getSnap(100,100,200,200);
+  		  //console.log(img_data);
+  		  //videoplay();
   		  //open_dialog();
   	});
 
@@ -38,11 +38,11 @@
     manager.on('twoFingersMove', function (state) {
        //console.log("2finger");
        if(flag==1){
-
+       		flag++;
        }else if(flag==10){
        		pointer(state.screenPosition().x,state.screenPosition().y,1);
        		flag=0;
-   		}else{
+   	   }else{
    			flag++;
    		}
 
@@ -50,7 +50,9 @@
     manager.start();
 	manager.on('surround', function (states) {
   		console.log(states);
-  		console.log(states);
+  		//console.log(states(1));
+  		//console.log(states[1].screenPosition().x);
+  		getSnap(0,0,200,300);
 	})
 		manager.start();
 	</script>
@@ -208,7 +210,7 @@
 	<div id="snap-area"></div>
 	
 	<div id="hidden-area">
-		<canvas id="tmp-canvas" width="100%" height="100%"></canvas>
+		<canvas id="tmp-canvas" width="800" height="800"></canvas>
 	</div>
   <script src="js/conductor-server.js"></script>
 	<script src="js/snapshot.js"></script>
