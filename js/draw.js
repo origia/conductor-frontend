@@ -17,7 +17,6 @@ App.leapManager.on('twoFingersMove', function(state) {
         flag++;
     } else if (flag === 5) {
         pointer(state.screenPosition().x, state.screenPosition().y, 1);
-        getSnap(0, 0, 0, 0);
         flag = 0;
     } else {
         flag++;
@@ -119,9 +118,5 @@ function pointer(px, py, flag) {
     // サブパス入れ直し
     stX = x;
     stY = y;
-
-
-    //さいしょの値（視点x,y、とwidth、height）
-    //getSnap(0,0,stX,stY);
 
 }
