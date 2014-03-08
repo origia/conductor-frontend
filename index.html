@@ -15,6 +15,7 @@
 
 <script type="text/javascript">
 $(document).ready(function () {
+  videoplay();
   //timer設定
   setInterval("get_leap_info()",1000);
 	$.getJSON("data.json", function(data){
@@ -28,12 +29,12 @@ $(document).ready(function () {
 
 });
 
-var Reap = require("./Reap_module.js");
+/*var Reap = require("./Reap_module.js");
 var p = new Reap("move",100,100);
 p.move();  // 
 //p.myName();  // 
 var tmp=p.move(); 
-console.log(tmp);
+console.log(tmp);*/
 
 
 
@@ -41,11 +42,34 @@ console.log(tmp);
 var motionObj = {};
 // loopFlagのタイマー
 function get_leap_info(){
-　console.log("timer");
-　pointer(100,100,0)
+　//console.log("timer");
+　//pointer(100,100,0)
   //さいしょの値（視点x,y、とwidth、height）
  //getSnap(0,0,stX,stY);
 }
+
+var LeapManager = require('leap-events').LeapManager
+  , FrameState  = require('leap-events').FrameState
+
+FrameState.screenSize = { width: 1024
+                      , height: 768
+                      }
+
+var manager = new LeapManager()
+manager.on('oneFingerMove', function (state) {
+  console.log(state.screenPosition().y)
+  pointer(state.screenPosition().x,state.screenPosition().y,0);
+　console.log
+})
+manager.start();
+
+
+manager.on('twoFingersMove', function (state) {
+   console.log("2finger")
+   pointer(state.screenPosition().x,state.screenPosition().y,1);
+
+})
+manager.start();
 
 
 
@@ -100,7 +124,7 @@ function getXML() {
   <div id="buttonbar">
     <button id="restart" onclick="restart();">restrat</button> 
     <button id="rew" onclick="skip(-5)">&lt;&lt;</button><p>5戻る</p>
-    <button id="play" onclick="vidplay()">start</button>
+    <button id="play" onclick="videoplay()">start</button>
     <button id="fastFwd" onclick="skip(5)">&gt;&gt;</button><p>5進む</p>
     <button id="zoom" onclick="zoomin();">ZOOM</button>
     <button id="zoom" onclick="zoomout();">ZOOMOUT</button>

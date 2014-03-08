@@ -16,8 +16,8 @@ console.log(p.move_kind);*/
 
 /* Grab the necessary DOM elements */
   var stage = document.getElementById('stage'),
-   v = document.getElementsByTagName('video')[0],
-   controls = document.getElementById('controls');
+  v = document.getElementsByTagName('video')[0],
+  controls = document.getElementById('controls');
       
        
 /* Array of possible browser specific settings for transformation */
@@ -77,7 +77,7 @@ console.log(p.move_kind);*/
 
 
  
-  function vidplay() {
+  function videoplay() {
        var video = document.getElementById("Video1");
        var button = document.getElementById("play");
        if (video.paused) {
