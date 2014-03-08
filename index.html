@@ -8,72 +8,22 @@
 	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 	<link rel="stylesheet" href="css/style.css" />
-	<script type="text/javascript">
-	  	$(document).ready(function () {
-	  		  //zvar img_data=getSnap(100,100,200,200);
-  		  //console.log(img_data);
-  		  //videoplay();
-  		  //open_dialog();
-  	});
-
-	 
-	//	var p = new Reap("move",100,100);
-		//p.move();  // 
-		
-
-
-
-    var LeapManager = require('leap-events').LeapManager
-      , FrameState  = require('leap-events').FrameState
-    FrameState.screenSize = { width: 1280, height: 1080}
-    FrameState.leapFrameSize ={ width: 350, height: 300}
-    var manager = new LeapManager();
-    manager.on('oneFingerMove', function (state) {
-      //console.log(state.screenPosition());
-      pointer(state.screenPosition().x,state.screenPosition().y,0);
-      
-    })
-    manager.start();
-    var flag=0;
-    manager.on('twoFingersMove', function (state) {
-       //console.log("2finger");
-       if(flag==1){
-       		flag++;
-       }else if(flag==10){
-       		pointer(state.screenPosition().x,state.screenPosition().y,1);
-       		flag=0;
-   	   }else{
-   			flag++;
-   		}
-
-    })
-    manager.start();
-	manager.on('surround', function (states) {
-  		console.log(states);
-  		//console.log(states(1));
-  		//console.log(states[1].screenPosition().x);
-  		getSnap(0,0,200,300);
-	})
-		manager.start();
-	</script>
-	<script type="text/javascript">
-	
-	</script>
 </head>
 <body>
 	<div class="wrapper">
+
 		<div id="stage" class="thumbnail">
 			<video id="Video1">
 				<source src="video/sample.webm" autoplay loop>
 			</video>
-		
 		</div>
-      <canvas class="label" id="a_canvas" width="1280" height="1080"></canvas>
+
+		<canvas class="label" id="a_canvas" width="1280" height="1080"></canvas>
+
 		<div class="information" id="dialog">
 			<div class="md-modal md-show">
 				<div class="md-content">
 					<h3>Modal Dialog</h3>
-					<div>
 						<ul>
 							<li>
 								<strong>名前:</strong>
@@ -172,49 +122,26 @@
 								学生
 							</li>
 						</ul>
-					</div>
-				</div>
-			</div>
+					</div> <!-- end md-content -->
+				</div>  <!-- end md-modal -->
+			</div> <!-- end information -->
+
 			<div class="screenshot">
 				<img src="images/screenshot.png">
 			</div>
-		</div>
-	</div>
-	<!--
-	<div id="buttonbar">
-		<button id="restart" onclick="restart();">restrat</button>
-		<button id="rew" onclick="skip(-5)">&lt;&lt;</button><p>5戻る</p>
-		<button id="play" onclick="vidplay()">start</button>
-		<button id="fastFwd" onclick="skip(5)">&gt;&gt;</button><p>5進む</p>
-		<button id="zoom" onclick="zoomin();">ZOOM</button>
-		<button id="zoom" onclick="zoomout();">ZOOMOUT</button>
-		<button id="zoom" onclick="moveleft();">LEFT</button>
-		<button id="zoom" onclick="moveright();">RIGHT</button>
-		<button id="zoom" onclick="moveup();">UP</button>
-	    <button id="zoom" onclick="movedown();">down</button>
-		<button id="zoom" onclick="open_dialog();">dialog</button>
-		<button id="snapshot-btn">スクショ</button>
-		<button id="draw"  onclick="getSnap_test(100,100);">TEST</button>
-		<button id="draw"  onclick="draw_move();">move_start</button>
-		<button id="draw"  onclick="draw_stop();">move_stop</button>
-	</div>
-	<button onclick="getXML()">Get XML</button>
-	-->
-	<script src="js/dialog.js"></script>
-	
-	<!--<div id="dialog2" title="基本的なダイアログ">
-		<p>
-			<ul id="output"></ul>
-		</p>
-	</div>-->
+
+		</div> <!-- end wrapper -->
+
 	<div id="snap-area"></div>
-	
+
 	<div id="hidden-area">
 		<canvas id="tmp-canvas" width="800" height="800"></canvas>
 	</div>
+	<script src="js/main.js"></script>
   <script src="js/conductor-server.js"></script>
 	<script src="js/snapshot.js"></script>
 	<script src="js/draw.js"></script>
 	<script src="js/operation.js"></script>
+	<script src="js/dialog.js"></script>
 </body>
 </html>
