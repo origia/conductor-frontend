@@ -7,23 +7,35 @@
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<script src="js/operation.js"></script>
 	<link rel="stylesheet" href="css/style.css" />
 	<script type="text/javascript">
-  	
-  
-   
+	  	$(document).ready(function () {
+  		  var img_data=getSnap(100,100,200,200);
+  		  console.log(img_data);
+  		  videoplay();
+  		  //open_dialog();
+  	});
+
+	 
+	//	var p = new Reap("move",100,100);
+		//p.move();  // 
+		
+
+
+
     var LeapManager = require('leap-events').LeapManager
       , FrameState  = require('leap-events').FrameState
     FrameState.screenSize = { width: 1280, height: 1080}
     var manager = new LeapManager()
     manager.on('oneFingerMove', function (state) {
-      console.log(state.screenPosition().y)
+      console.log(state.screenPosition());
       pointer(state.screenPosition().x,state.screenPosition().y,0);
-    
+      //zoomin();
     })
     manager.start();
     manager.on('twoFingersMove', function (state) {
-       console.log("2finger")
+       console.log("2finger");
        pointer(state.screenPosition().x,state.screenPosition().y,1);
 
     })
@@ -37,12 +49,12 @@
 	<div class="wrapper">
 		<div id="stage" class="thumbnail">
 			<video id="Video1">
-				<source src="video/sample.mov" autoplay loop>
+				<source src="video/sample.webm" autoplay loop>
 			</video>
 		
 		</div>
-      <canvas class="label" id="a_canvas" width="100%" height="100%"></canvas>
-		<div class="information">
+      <canvas class="label" id="a_canvas" width="1280" height="1080"></canvas>
+		<div class="information" id="dialog">
 			<div class="md-modal md-show">
 				<div class="md-content">
 					<h3>Modal Dialog</h3>
@@ -164,7 +176,7 @@
 		<button id="zoom" onclick="moveleft();">LEFT</button>
 		<button id="zoom" onclick="moveright();">RIGHT</button>
 		<button id="zoom" onclick="moveup();">UP</button>
-	　<button id="zoom" onclick="movedown();">down</button>
+	    <button id="zoom" onclick="movedown();">down</button>
 		<button id="zoom" onclick="open_dialog();">dialog</button>
 		<button id="snapshot-btn">スクショ</button>
 		<button id="draw"  onclick="getSnap_test(100,100);">TEST</button>
@@ -174,19 +186,20 @@
 	<button onclick="getXML()">Get XML</button>
 	-->
 	<script src="js/dialog.js"></script>
-	<script src="js/operation.js"></script>
-	<div id="dialog" title="基本的なダイアログ">
+	
+	<!--<div id="dialog2" title="基本的なダイアログ">
 		<p>
 			<ul id="output"></ul>
 		</p>
-	</div>
+	</div>-->
 	<div id="snap-area"></div>
-	<!--
+	
 	<div id="hidden-area">
 		<canvas id="tmp-canvas" width="100%" height="100%"></canvas>
 	</div>
-	-->
+  <script src="js/conductor-server.js"></script>
 	<script src="js/snapshot.js"></script>
 	<script src="js/draw.js"></script>
+
 </body>
 </html>
