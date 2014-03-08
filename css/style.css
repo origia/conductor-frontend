@@ -135,6 +135,7 @@ div ul {
 	margin: 0;
 	padding: 20px 0px 10px 20px;
 	line-height: 1.6em;
+	overflow: hidden;
 }
 
 div ul li {
@@ -144,6 +145,7 @@ div ul li {
 	list-style-type: none;
 	font-size: 130%;
 	padding-bottom: 10px;
+	overflow: hidden;
 }
 
 div ul li strong{
@@ -151,6 +153,10 @@ div ul li strong{
 	font-size: 80%;
 }
 
+div ul li img {
+	width: 130px;
+	height: auto;
+}
 
 /* Effect 14:  3D Rotate from bottom */
 .md-modal {
