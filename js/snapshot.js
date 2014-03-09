@@ -34,6 +34,8 @@ App.leapManager.on('surround', function (states) {
       width  = Math.min(videoObj.width - x, rectangle.width),
       height = Math.min(videoObj.height - y, rectangle.height);
 
+  if (width === 0 || height === 0) return;
+
   context.clearRect(0, 0, imgCanvasObj.width, imgCanvasObj.height);
   context.drawImage(videoObj, x, y, width, height, 0, 0,
     destWidth, destHeight);

@@ -16,8 +16,7 @@ App.dialog = App.dialog || $('#dialog');
 
 
 
-App.leapManager.on('fingerMove', function (state) {
-  if (state.fingersCount() < 3 || state.fingersCount() === 5) return;
+App.leapManager.on('fourFingersMove', function (state) {
   var position = state.screenPosition();
   App.dialog.offset({
     top: position.y,
