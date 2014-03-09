@@ -22,6 +22,7 @@
   "homepage": "https://github.com/origia/conductor-frontend",
   "dependencies": {
     "leap-events": "git+https://github.com/origia/leap-events.git#master",
+    "node-pux": "git+https://github.com/origia/node-pux.git#master",
     "request": "~2.34.0",
     "async": "~0.2.10"
   }
