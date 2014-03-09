@@ -41,10 +41,10 @@ App.leapManager.on('surround', function (states) {
     destWidth, destHeight);
   var img = imgCanvasObj.toDataURL("image/jpeg");
   imgObj.src = img;
-  App.puxClient.authenticateFaceBase64(img, {
-    extractCandidate: true,
-    onSuccess: function (personId) {
-      console.log(personId);
+
+  App.detectPerson(img, videoObj.currentTime, rectangle, {
+    onSuccess: function (person) {
+      console.log(person);
     }
   });
 
