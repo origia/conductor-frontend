@@ -39,7 +39,7 @@ App.leapManager.on('surround', function (states) {
   context.clearRect(0, 0, imgCanvasObj.width, imgCanvasObj.height);
   context.drawImage(videoObj, x, y, width, height, 0, 0,
     destWidth, destHeight);
-  imgObj.src = imgCanvasObj.toDataURL();
+  imgObj.src = imgCanvasObj.toDataURL("image/jpeg");
 
   App.clearLines();
 });
