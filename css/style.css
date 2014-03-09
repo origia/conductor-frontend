@@ -46,7 +46,7 @@ canvas {
 }
 .screenshot img {
 	width: 80%;
-}
+}<p>ショッピングリストに追加されました</p>
 
 .md-modal {
 	float: left;
@@ -205,10 +205,10 @@ div ul li img {
 }
 
 #music_dialog {
-	position: absolute;
+	/*position: absolute;
 	left: 50%;
 	margin-left: -250px;
-	width: 500px;
+	width: 500px;*/
 }
 
 #action-indicator {
