@@ -19,14 +19,14 @@
 }
 {
 	   "type":"cm",
-	   "name": "",
-		"start_time": 0.0,
-		"end_time": 15.0,
+	   "name": "ベンザブロック",
+		"start_time": 14.71750,
+		"end_time": 29.63249,
 		"person":[
-			{ "stage_name": "香川照之", "real_name":"香川 照之","age": 48,"birth": " 12月7日","blod_type:"A","job":"俳優,"label":"ロータス・ルーツ","work":"半沢直樹"},
+			{ "stage_name": "綾瀬はるか", "real_name":"非公開","age": 28,"birth": " 3月24日","blod_type":"B","job":"女優","label":"ホリプロ","work":"八重の桜"},
 		],
 		"item": [
-			{ "object": "item", "item_name": "ヘルシア緑茶"},
+			{ "object": "item", "item_name": "ベンザブロック"},
 		],
 		"music": [
 			
@@ -34,14 +34,14 @@
 	}
 {
 	   "type":"cm",
-	   "name": "ヘルシア緑茶",
-		"start_time": 0.0,
-		"end_time": 15.0,
+	   "name": "ベンザブロック",
+		"start_time": 14.71750,
+		"end_time": 29.63249,
 		"person":[
-			{ "stage_name": "香川照之", "real_name":"香川 照之","age": 48,"birth": " 12月7日","blod_type:"A","job":"俳優,"label":"ロータス・ルーツ","work":"半沢直樹"},
+			{ "stage_name": "綾瀬はるか", "real_name":"非公開","age": 28,"birth": " 3月24日","blod_type":"B","job":"女優","label":"ホリプロ","work":"八重の桜"},
 		],
 		"item": [
-			{ "object": "item", "item_name": "ヘルシア緑茶"},
+			{ "object": "item", "item_name": "ベンザブロック"},
 		],
 		"music": [
 			
