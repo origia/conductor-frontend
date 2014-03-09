@@ -11,12 +11,15 @@
 		],
 		"item": [
 			{ "object": "item", "item_name": "ヘルシア緑茶"},
+		],
+		"music": [
+			
 		]
 	
 }
 {
 	   "type":"cm",
-	   "name": "ヘルシア緑茶",
+	   "name": "",
 		"start_time": 0.0,
 		"end_time": 15.0,
 		"person":[
@@ -24,6 +27,9 @@
 		],
 		"item": [
 			{ "object": "item", "item_name": "ヘルシア緑茶"},
+		],
+		"music": [
+			
 		]
 	}
 {
@@ -36,8 +42,11 @@
 		],
 		"item": [
 			{ "object": "item", "item_name": "ヘルシア緑茶"},
+		],
+		"music": [
+			
 		]
-	}
+}
 ]
 
 	
