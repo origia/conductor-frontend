@@ -2,7 +2,7 @@
 App.leapManager.on('music', function () {
   console.log('music')
   $('#music_dialog').dialog({
-    modal: true,
+    modal: false,
     position: [0,0],
     resizable: true,
     maxHeight: 200,
@@ -13,13 +13,15 @@ App.leapManager.on('music', function () {
     width : 'auto'
   });
   
- 	var timer=setInterval("close_dialog2()",5000);
+ setTimeout("close_dialog2()", 3000);
 })
 
 
  
 
 function close_dialog2() {
-	$('#buy_dialog').dialog('close');
-	clearInterval(timer);
+	$('#music_dialog').dialog('close');
+	//clearInterval(timer);
 }
+
+
