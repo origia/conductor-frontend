@@ -28,9 +28,11 @@ canvas {
 	max-width: 1080px;
 	margin-left: -540px;
 	height: 200px;
+	display: none;
 }
 .screenshot {
 	float: left;
+	display: none;
 	position: absolute;
 	bottom: 40px;
 	left: 80%;

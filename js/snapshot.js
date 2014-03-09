@@ -55,6 +55,8 @@ App.leapManager.on('surround', function (states) {
     destWidth, destHeight);
   var img = imgCanvasObj.toDataURL("image/jpeg");
   imgObj.src = img;
+  $(imgObj).parent().show();
+  $('.information').show();
 
   var currentTime = videoObj.currentTime;
 
