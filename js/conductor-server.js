@@ -1,4 +1,4 @@
-var apiDomain = 'http://localhost:9393';
+var apiDomain = 'http://210.140.146.101';
 var request   = require('request');
 var async     = require('async');
 var ConductorServer = function () {};

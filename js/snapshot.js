@@ -55,7 +55,9 @@ App.leapManager.on('surround', function (states) {
   var img = imgCanvasObj.toDataURL("image/jpeg");
   imgObj.src = img;
 
-  App.detectPerson(img, videoObj.currentTime, rectangle, {
+  var currentTime = videoObj.currentTime;
+
+  App.detectPerson(img, currentTime, rectangle, {
     onSuccess: function (data) {
       var metaData = data.metaData,
           person   = data.person;
@@ -63,9 +65,23 @@ App.leapManager.on('surround', function (states) {
       if (metaData.type === "cm") {
         var item = metaData.item[0];
         container.html(cmTemplate(_.extend({}, person, item, { title: metaData.name })));
+        App.conductorServer.searchSave({
+          word: item.item_name,
+          img: imgCanvasObj.toDataURL(),
+          object: "cm",
+          currentTime: currentTime,
+          title: metaData.name
+        });
       } else {
         if (person) {
           container.html(dramaTemplate(person));
+          App.conductorServer.searchSave({
+            word: person.stage_name,
+            img: imgCanvasObj.toDataURL(),
+            object: "drama",
+            currentTime: currentTime,
+            title: metaData.name
+          });
         }
       }
     }
