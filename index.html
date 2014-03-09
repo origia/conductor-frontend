@@ -27,7 +27,7 @@
     <div class="information" id="dialog">
       <div class="md-modal md-show">
         <div class="md-content">
-          <h3>Modal Dialog</h3>
+<!--           <h3>Modal Dialog</h3>
           <ul>
               <li>
                 <strong>名前:</strong>
@@ -126,7 +126,7 @@
                 学生
               </li>
             </ul>
-        </div> <!-- md-content end -->
+ -->        </div> <!-- md-content end -->
       </div> <!-- md-show end -->
       <div class="screenshot">
         <img src="images/screenshot.png" id="dialogimg" >
@@ -134,6 +134,28 @@
     </div> <!-- information end -->
   </div> <!-- wrapper end -->
 
+
+  <script id="cm-template" type="text/template">
+    <h3><%= title %></h3>
+    <ul>
+      <% if(typeof stage_name !== 'undefined') { %>
+        <li><strong>出演者:</strong><%= stage_name %></li>
+      <% } %>
+      <li><strong>アイテム名:</strong><%= item_name %></li>
+    </ul>
+  </script>
+
+  <script id="drama-template" type="text/template">
+  　<h3><%= stage_name %></h3>
+   <ul>
+  　  <li><strong>本名: </strong> <%= real_name %> </li>
+  　  <li><strong>生年月日　: </strong> <%= birth %> </li>
+  　  <li><strong>血液型: </strong> <%= blood_type %> </li>
+  　  <li><strong>職業: </strong> <%= job %> </li>
+  　  <li><strong>事務所: </strong> <%= label %> </li>
+  　  <li><strong>主な作品　: </strong> <%= work %> </li>
+  </ul>
+  </script>
 
   <div id="hidden-area" type="hidden" class="hidden">
   <canvas id="img-canvas" width="90" height="90"></canvas>

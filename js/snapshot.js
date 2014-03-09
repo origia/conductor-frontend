@@ -1,3 +1,5 @@
+var _ = require('underscore');
+
 var getRectangle = function (states) {
   var minX = 10000,
       minY = 10000,
@@ -25,6 +27,17 @@ var videoObj     = document.getElementById("Video1"),
     destWidth    = imgCanvasObj.width,
     destHeight   = imgCanvasObj.height;
 
+var container;
+var cmTemplate;
+var dramaTemplate;
+
+$(function() {
+  container     = $('.md-content');
+  cmTemplate    = _.template($('#cm-template').html());
+  dramaTemplate = _.template($('#drama-template').html());
+});
+
+
 App.leapManager.on('surround', function (states) {
   var rectangle = getRectangle(states),
       context   = imgCanvasObj.getContext("2d");
@@ -43,8 +56,18 @@ App.leapManager.on('surround', function (states) {
   imgObj.src = img;
 
   App.detectPerson(img, videoObj.currentTime, rectangle, {
-    onSuccess: function (person) {
-      console.log(person);
+    onSuccess: function (data) {
+      var metaData = data.metaData,
+          person   = data.person;
+
+      if (metaData.type === "cm") {
+        var item = metaData.item[0];
+        container.html(cmTemplate(_.extend({}, person, item, { title: metaData.name })));
+      } else {
+        if (person) {
+          container.html(dramaTemplate(person));
+        }
+      }
     }
   });
 

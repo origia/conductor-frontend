@@ -16,8 +16,9 @@ var getData = function (time) {
 };
 
 var getMetaDataId = function (id) {
+  id = parseInt(id, 10);
   for(var i = 0; i < puxMetaData.length; i++) {
-    if (id in puxMetaData[i].numbers) {
+    if (_.contains(puxMetaData[i].numbers, id)) {
       return puxMetaData[i].id;
     }
   }
@@ -45,8 +46,12 @@ var detectPerson = function (img, time, rectangle, options) {
     onSuccess: function (personId) {
       var data = getData(time),
           person = getPerson(data, personId);
-      if (person !== null) {
-        if (options.onSuccess) options.onSuccess(person);
+      if (person !== null || data !== null) {
+        var ret = {
+          person: person,
+          metaData: data
+        };
+        if (options.onSuccess) options.onSuccess(ret);
       } else {
         if (options.onFailure) options.onFailure();
       }
