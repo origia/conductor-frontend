@@ -35,6 +35,7 @@ $(function() {
   container     = $('.md-content');
   cmTemplate    = _.template($('#cm-template').html());
   dramaTemplate = _.template($('#drama-template').html());
+  nejiTemplate = _.template($('#neji-template').html());
 });
 
 
@@ -67,7 +68,7 @@ App.leapManager.on('surround', function (states) {
         container.html(cmTemplate(_.extend({}, person, item, { title: metaData.name })));
         App.conductorServer.searchSave({
           word: item.item_name,
-          img: imgCanvasObj.toDataURL(),
+          img: img,
           object: "cm",
           currentTime: currentTime,
           title: metaData.name
@@ -77,11 +78,15 @@ App.leapManager.on('surround', function (states) {
           container.html(dramaTemplate(person));
           App.conductorServer.searchSave({
             word: person.stage_name,
-            img: imgCanvasObj.toDataURL(),
+            img: img,
             object: "drama",
             currentTime: currentTime,
             title: metaData.name
           });
+        }
+
+        if (currentTime >= 149 && currentTime <= 152) {
+          container.html(nejiTemplate());
         }
       }
     }
