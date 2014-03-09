@@ -1,101 +1,128 @@
+[{
+  "type":"cm",
+  "name": "ヘルシア緑茶",
+  "start_time": 0.0,
+  "end_time": 15.0,
 
-[
+  "person": [{
+    "stage_name": "香川照之",
+    "real_name": "香川 照之",
+    "age": 48,
+    "birth": "12月7日",
+    "blood_type":"AB",
+    "job":"俳優",
+    "label":"ロータス・ルーツ",
+    "work":"半沢直樹"
+  }],
+  "item": [{
+    "object": "item",
+    "item_name": "ヘルシア緑茶"
+  }],
+  "music": [
+  ]
+},
 {
-		"type":"cm",
-		"name": "ヘルシア緑茶",
-		"start_time": 0.0,
-		"end_time": 15.0,
+  "type":"cm",
+  "name": "ベンザブロック",
+  "start_time": 14.71750,
+  "end_time": 29.63249,
+  "person":[{
+    "stage_name": "綾瀬はるか",
+    "real_name": "非公開",
+    "age": 28,
+    "birth": "3月24日",
+    "blod_type":"B",
+    "job":"女優",
+    "label":"ホリプロ",
+    "work":"八重の桜"
+  }],
+  "item": [{
+    "object": "item",
+    "item_name": "ベンザブロック"
+  }],
+  "music": [
+  ]
+},
+{
+  "type":"cm",
+  "name": "カップヌードル",
+  "start_time": 29.63250,
+  "end_time": 59.06149,
+  "person":[
+  ],
+  "item": [{
+    "object": "item",
+    "item_name": "カップヌードル"
+  }],
+  "music": [
+  ]
+},
+{
+  "type":"cm",
+  "name": "プレミアムモルツ",
+  "start_time": 59.06150,
+  "end_time": 86.98949,
+  "person":[{
+    "stage_name": "矢沢 永吉",
+    "real_name": "矢沢 永吉",
+    "age": 64,
+    "birth": "9月14日",
+    "blod_type":"B",
+    "job":"ミュージシャン",
+    "label":" GARURU RECORDS",
+    "work":"いつの日か"
+  }],
+  "item": [{
+    "object": "item",
+    "item_name": "プレミアムモルツ"
+  }],
+  "music": [{
+    "title":"Hey, Jude",
+    "artist":"BEATLES"
+  }]
+},
+{
+  "type":"dorama",
+  "name": "けいおん",
+  "start_time": 86.98950,
+  "end_time": 110.77949,
+  "person":[
+  ],
+  "item": [
+  ],
+  "music": [
+  ]
+},
+{
+  "type":"dorama",
+  "name": "半沢直樹",
+  "start_time": 110.77950,
+  "end_time": 175.299,
+  "person": [{
+    "stage_name": "香川照之",
+    "real_name":"香川 照之",
+    "age": 48,
+    "birth": "1965年12月7日",
+    "blood_type":"AB",
+    "job":"俳優",
+    "label":"ロータス・ルーツ",
+    "work":"半沢直樹"
+  }, {
+    "stage_name": "堺 雅人",
+    "real_name":"堺 雅人",
+    "age": 40,
+    "birth": "1973年10月14日",
+    "blood_type":"0",
+    "job":"俳優",
+    "label":"田辺エージェンシー",
+    "work":"半沢直樹"
+  }],
+  "item": [{
+    "object": "item",
+    "item_name": "ねじ",
+    "extra_info": "半沢直樹"
+  }],
+  "music": [
 
-		"person":[
-			{ "stage_name": "香川照之", "real_name":"香川 照之","age": 48,"birth": "12月7日","blood_type":"AB","job":"俳優","label":"ロータス・ルーツ","work":"半沢直樹"},
-		],
-		"item": [
-			{ "object": "item", "item_name": "ヘルシア緑茶"},
-		],
-		"music": [
-			
-		]
-	
-}
-{
-	   "type":"cm",
-	   "name": "ベンザブロック",
-		"start_time": 14.71750,
-		"end_time": 29.63249,
-		"person":[
-			{ "stage_name": "綾瀬はるか", "real_name":"非公開","age": 28,"birth": "3月24日","blod_type":"B","job":"女優","label":"ホリプロ","work":"八重の桜"},
-		],
-		"item": [
-			{ "object": "item", "item_name": "ベンザブロック"},
-		],
-		"music": [
-			
-		]
-	}
-{
-	   "type":"cm",
-	   "name": "カップヌードル",
-		"start_time": 29.63250,
-		"end_time": 59.06149,
-		"person":[
-			
-		],
-		"item": [
-			{ "object": "item", "item_name": "カップヌードル"},
-		],
-		"music": [
-			
-		]
-}
-{
-	   "type":"cm",
-	   "name": "プレミアムモルツ",
-		"start_time": 59.06150,
-		"end_time": 86.98949,
-		"person":[
-			{ "stage_name": "矢沢 永吉", "real_name":"矢沢 永吉","age": 64,"birth": "9月14日","blod_type":"B","job":"ミュージシャン","label":"	GARURU RECORDS","work":"いつの日か"},
-		],
-		"item": [
-			{ "object": "item", "item_name": "プレミアムモルツ"},
-		],
-		"music": [
-			{ "title":"Hey, Jude","artist":"BEATLES"},
-		]
-}
-{
-	   "type":"dorama",
-	   "name": "けいおん",
-		"start_time": 86.98950,
-		"end_time": 110.77949,
-		"person":[
-			
-		],
-		"item": [
-			
-		],
-		"music": [
-			
-		]
-}
-{
-	   "type":"dorama",
-	   "name": "半沢直樹",
-		"start_time": 110.77950,
-		"end_time": 175.299,
-		"person":[
-			{ "stage_name": "香川照之", "real_name":"香川 照之","age": 48,"birth": "1965年12月7日","blood_type":"AB","job":"俳優","label":"ロータス・ルーツ","work":"半沢直樹"},
-			{ "stage_name": "堺 雅人", "real_name":"堺 雅人","age": 40,"birth": "1973年10月14日","blood_type":"0","job":"俳優","label":"田辺エージェンシー","work":"半沢直樹"},
-		],
-		"item": [
-			{ "object": "item", "item_name": "ねじ"},
-		],
-		"music": [
-			
-		]
-}
-
-]
-
-	
-
-
+  ]
+}]
