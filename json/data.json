@@ -19,8 +19,7 @@
     "object": "item",
     "item_name": "ヘルシア緑茶"
   }],
-  "music": [
-  ]
+  "music": {}
 },
 {
   "type":"cm",
@@ -42,8 +41,7 @@
     "object": "item",
     "item_name": "ベンザブロック"
   }],
-  "music": [
-  ]
+  "music": {}
 },
 {
   "type":"cm",
@@ -56,8 +54,7 @@
     "object": "item",
     "item_name": "カップヌードル"
   }],
-  "music": [
-  ]
+  "music": {}
 },
 {
   "type":"cm",
@@ -79,10 +76,14 @@
     "object": "item",
     "item_name": "プレミアムモルツ"
   }],
-  "music": [{
+  "music": {
     "title":"Hey, Jude",
-    "artist":"BEATLES"
-  }]
+    "artist":"The Beatles",
+    "time": 1969,
+    "genre": "60 年代ロック",
+    "album": "Abbey Road",
+    "img": "images/36C4_medium_front.jpg"
+  }
 },
 {
   "type":"dorama",
@@ -101,8 +102,14 @@
   }],
   "item": [
   ],
-  "music": [
-  ]
+  "music": {
+    "title": null,
+    "artist":"田井中律(佐藤聡美)&琴吹紬(寿美菜子)&中野梓(竹達彩奈)",
+    "time": 2009,
+    "genre": "オリジナル映画/テレビ音楽",
+    "album": "けいおん! イメージソング 田井中律&琴吹紬&中野梓",
+    "img": null
+  }
 },
 {
   "type":"dorama",
@@ -135,7 +142,12 @@
     "item_name": "ねじ",
     "extra_info": "半沢直樹"
   }],
-  "music": [
-
-  ]
+  "music": {
+    "title": null,
+    "artist":"服部隆之",
+    "time": 2013,
+    "genre": "オリジナル映画/テレビ音楽",
+    "album": "半沢直樹 オリジナル･サウンドトラック",
+    "img": "7B56_medium_front.jpg"
+  }
 }]
