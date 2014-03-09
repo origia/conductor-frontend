@@ -86,8 +86,16 @@
   "name": "けいおん",
   "start_time": 86.98950,
   "end_time": 110.77949,
-  "person":[
-  ],
+  "person":[{
+    "stage_name": "中野 梓",
+    "real_name": "竹達 彩奈",
+    "age": 24,
+    "birth": "1989年6月23日",
+    "blood_type":"O",
+    "job":"声優",
+    "label":"アセンブルハート",
+    "work":"けいおん"
+  }],
   "item": [
   ],
   "music": [
