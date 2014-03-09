@@ -39,7 +39,14 @@ App.leapManager.on('surround', function (states) {
   context.clearRect(0, 0, imgCanvasObj.width, imgCanvasObj.height);
   context.drawImage(videoObj, x, y, width, height, 0, 0,
     destWidth, destHeight);
-  imgObj.src = imgCanvasObj.toDataURL("image/jpeg");
+  var img = imgCanvasObj.toDataURL("image/jpeg");
+  imgObj.src = img;
+  App.puxClient.authenticateFaceBase64(img, {
+    extractCandidate: true,
+    onSuccess: function (personId) {
+      console.log(personId);
+    }
+  });
 
   App.clearLines();
 });
