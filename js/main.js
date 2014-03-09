@@ -15,6 +15,8 @@ App.conductorServer = App.conductorServer || new ConductorServer();
 App.leapManager = new LeapManager({
 });
 
+App.currentItem = null;
+
 
 document.getElementById("Video1").play();
 

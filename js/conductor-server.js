@@ -100,7 +100,7 @@ cs.wishSave({word: word, currentTime: currentTime}, function(results){
 })
 */
 ConductorServer.prototype.wishSave = function(param, func){
-    var apiPath = 'wish/save';
+    var apiPath = '/wish/save';
     this._post(apiPath, param, func);
 };
 

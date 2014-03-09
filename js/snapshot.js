@@ -73,6 +73,11 @@ App.leapManager.on('surround', function (states) {
           currentTime: currentTime,
           title: metaData.name
         });
+        App.currentItem = {
+          title: metaData.name,
+          currentTime: currentTime,
+          word: item.item_name
+        };
       } else {
         if (person) {
           container.html(dramaTemplate(person));
@@ -87,6 +92,11 @@ App.leapManager.on('surround', function (states) {
 
         if (currentTime >= 149 && currentTime <= 152) {
           container.html(nejiTemplate());
+          App.currentItem = {
+            word: '半沢直樹 ねじ',
+            title: '半沢直樹',
+            currentTime: currentTime,
+          };
         }
       }
     }

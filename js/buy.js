@@ -11,6 +11,10 @@ App.leapManager.on('buy', function () {
     width : 'auto'
   });
  	setTimeout("close_dialog()", 3000);
+
+  if (App.currentItem !== null) {
+    App.conductorServer.wishSave(App.currentItem);
+  }
 })
 
 
