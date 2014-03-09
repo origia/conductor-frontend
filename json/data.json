@@ -5,6 +5,7 @@
   "end_time": 15.0,
 
   "person": [{
+    "id": "kagawa",
     "stage_name": "香川照之",
     "real_name": "香川 照之",
     "age": 48,
@@ -27,6 +28,7 @@
   "start_time": 14.71750,
   "end_time": 29.63249,
   "person":[{
+    "id": "hayase",
     "stage_name": "綾瀬はるか",
     "real_name": "非公開",
     "age": 28,
@@ -63,6 +65,7 @@
   "start_time": 59.06150,
   "end_time": 86.98949,
   "person":[{
+    "id": "yazawa",
     "stage_name": "矢沢 永吉",
     "real_name": "矢沢 永吉",
     "age": 64,
@@ -107,6 +110,7 @@
   "start_time": 110.77950,
   "end_time": 175.299,
   "person": [{
+    "id": "kagawa",
     "stage_name": "香川照之",
     "real_name":"香川 照之",
     "age": 48,
@@ -116,6 +120,7 @@
     "label":"ロータス・ルーツ",
     "work":"半沢直樹"
   }, {
+    "id": "hanzawa",
     "stage_name": "堺 雅人",
     "real_name":"堺 雅人",
     "age": 40,
