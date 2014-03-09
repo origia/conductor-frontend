@@ -95,7 +95,7 @@ App.leapManager.on('surround', function (states) {
         if (currentTime >= 149 && currentTime <= 152) {
           container.html(nejiTemplate());
           App.currentItem = {
-            word: '半沢直樹 ねじ',
+            word: '半沢直樹ねじ',
             title: '半沢直樹',
             currentTime: currentTime,
           };
