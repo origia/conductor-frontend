@@ -204,11 +204,17 @@ div ul li img {
 		.information { left: 0%; max-width: 100%; margin-left: 0px; }
 }
 
+#music_dialog {
+	position: absolute;
+	left: 50%;
+	margin-left: -250px;
+	width: 500px;
+}
+
 #action-indicator {
 	top: 0;
 	left: 0;
 }
-
 
 .hidden {
 	display: none;
