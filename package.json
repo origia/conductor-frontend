@@ -24,7 +24,8 @@
     "leap-events": "git+https://github.com/origia/leap-events.git#master",
     "node-pux": "git+https://github.com/origia/node-pux.git#master",
     "request": "~2.34.0",
-    "async": "~0.2.10"
+    "async": "~0.2.10",
+    "underscore": "~1.6.0"
   },
   "window": {
     "toolbar": true
